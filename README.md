@@ -3,7 +3,7 @@
 > *"Aloha! Confira os livros incríveis cadastrados pelos usuários (dahoras) do site de seu professor vietnamita."*  
 > — H. (Love & Peace!) ✌️
 
-Uma livraria virtual desenvolvida como trabalho da disciplina de **Banco de Dados**, com sistema de CRUD completo, autenticação de usuários e um quiz divertido para liberar o famoso **Selo HH** 🏅.
+Uma livraria virtual desenvolvida como trabalho da disciplina de **Banco de Dados**, com sistema de CRUD completo, autenticação de usuários e um quiz divertido para liberar o famoso **Selo HH**.
 
 ---
 
