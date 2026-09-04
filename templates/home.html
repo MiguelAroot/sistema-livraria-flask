@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Início — Livraria do HH{% endblock %}
+{% block content %}
+
+  <h1>Livraria do HH</h1>
+
+  <p>
+    Aloha{% if session.nome %}, {{ session.nome }}{% endif %}!
+    Confira os livros incriveis cadastrados pelos usuários (dahoras) do site de seu professor vietnamita.
+  </p>
+  <p>
+    Afetuosamente,
+  </p>
+  <p>
+    –H. (Love & Peace!)
+  </p>
+
+  {% if not session.id_usuario %}
+    <p>
+      <a href="{{ url_for('fazer_login') }}">Entre</a> ou
+      <a href="{{ url_for('registrar_usuario') }}">crie uma conta</a>
+      para cadastrar livros.
+    </p>
+  {% endif %}
+
+  <form method="get" action="{{ url_for('home') }}" class="busca">
+    <label for="busca">Buscar por título, autor ou gênero</label>
+    <input type="search" id="busca" name="busca" value="{{ busca }}" placeholder="ex: Tolkien">
+    <button type="submit" class="botao">Buscar</button>
+  </form>
+
+  {% if busca %}
+    <p>
+      {{ livros|length }} resultado(s) para "{{ busca }}"
+      — <a href="{{ url_for('home') }}">limpar busca</a>
+    </p>
+  {% endif %}
+
+  {% if livros %}
+    <table class="tabela">
+      <caption>Livros cadastrados na Livraria do HH</caption>
+      <thead>
+        <tr>
+          <th scope="col">Título</th>
+          <th scope="col">Autor</th>
+          <th scope="col">Gênero</th>
+          <th scope="col">Ano</th>
+          <th scope="col">Preço</th>
+          <th scope="col">Cadastrado por</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for livro in livros %}
+          <tr>
+            <td><a href="{{ url_for('ver_livro', id_livro=livro[0]) }}">{{ livro[1] }}</a></td>
+            <td>{{ livro[2] if livro[2] else "Autor não informado" }}</td>
+            <td>{{ livro[3] }}</td>
+            <td>{{ livro[4] if livro[4] else "—" }}</td>
+            <td>R$ {{ "%.2f"|format(livro[5]) }}</td>
+            <td>
+              {{ livro[7] }}
+              {% if livro[8] %}
+                <span class="selo">Selo HH</span>
+              {% endif %}
+            </td>
+            <td class="status-{{ livro[6] }}">
+              {% if livro[6] == 'aprovado' %}
+                Aprovado
+              {% else %}
+                Pendente
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="vazio">
+      {% if busca %}Nenhum livro encontrado para essa busca.{% else %}Nenhum livro cadastrado ainda. Seja o primeiro!{% endif %}
+    </p>
+  {% endif %}
+
+{% endblock %}
