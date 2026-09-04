@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Selo HH — Livraria do HH{% endblock %}
+{% block content %}
+
+  <h1>Teste do Selo HH</h1>
+
+  <div class="selo-apresentacao">
+    <img src="{{ url_for('static', filename='img/hondinha.png') }}"
+         alt="Hondinha, mascote da Livraria do HH"
+         class="imagem-hondinha">
+
+    <div class="balao-fala">
+      <p>
+        Pra poder cadastrar livros na INCRÍVEL Livraria do HH, você precisará
+        responder corretamente three questions feitas pelo gemini e ganhar o famigerado Selo HH.
+        É preciso acertar todas de uma vez.
+        Good luck, folks!
+      </p>
+    </div>
+  </div>
+
+  {% if erro %}
+    <div class="caixa-erro">
+      <span aria-hidden="true">⚠</span>
+      <p>{{ erro }}</p>
+    </div>
+  {% endif %}
+
+  <form method="post" action="{{ url_for('verificar_selo') }}" class="caixa-formulario">
+
+    {% for questao in questoes %}
+      {% set questao_index = loop.index0 %}
+      <fieldset class="pergunta">
+        <legend>{{ loop.index }}. {{ questao.pergunta }}</legend>
+
+        {% for valor, texto in questao.alternativas %}
+          <label class="alternativa">
+            <input type="radio" name="pergunta{{ questao_index }}" value="{{ valor }}" required>
+            <span>{{ texto }}</span>
+          </label>
+        {% endfor %}
+      </fieldset>
+    {% endfor %}
+
+    <button type="submit" class="botao">Verificar respostas</button>
+
+  </form>
+
+{% endblock %}
