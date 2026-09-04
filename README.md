@@ -17,7 +17,7 @@ Uma livraria virtual desenvolvida como trabalho da disciplina de **Banco de Dado
 
 ---
 
-##Funcionalidades
+## Funcionalidades
 
 - 🔐 **Autenticação de usuários** (cadastro, login e logout)
 - 📖 **CRUD completo de livros** (cadastrar, listar, editar e excluir)
