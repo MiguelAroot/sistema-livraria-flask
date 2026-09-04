@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Entrar — Livraria do HH{% endblock %}
+{% block content %}
+
+  <h1>Entrar</h1>
+
+  {% if erro %}
+    <div class="caixa-erro">
+      <span aria-hidden="true">⚠</span>
+      <p>{{ erro }}</p>
+    </div>
+  {% endif %}
+
+  <form method="post" action="{{ url_for('fazer_login') }}" class="caixa-formulario">
+
+    <div class="campo">
+      <label for="nome">Nome de usuário</label>
+      <input type="text" id="nome" name="nome" required>
+    </div>
+
+    <div class="campo">
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" name="senha" required>
+    </div>
+
+    <button type="submit" class="botao">Entrar</button>
+
+  </form>
+
+  <p>Não tem conta? <a href="{{ url_for('registrar_usuario') }}">Criar conta</a></p>
+
+{% endblock %}
