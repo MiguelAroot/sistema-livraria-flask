@@ -28,23 +28,27 @@ Uma livraria virtual desenvolvida como trabalho da disciplina de **Banco de Dado
 
 ---
 
-##Estrutura do Projeto
+## 📂 Estrutura do Projeto
 
-├── app.py # Rotas Flask e lógica da aplicação
-├── model.py # Funções de acesso ao banco de dados
-├── livraria_HH.db # Banco SQLite (criado automaticamente)
-├── templates/ # Páginas HTML (Jinja2)
-│ ├── base.html
-│ ├── home.html
-│ ├── cadastrar.html
-│ ├── editar.html
-│ ├── meus_livros.html
-│ ├── livro_detalhe.html
-│ ├── login.html
-│ └── registrar.html
+```text
+livraria-hh/
+├── app.py                # Rotas Flask e lógica da aplicação
+├── model.py              # Funções de acesso ao banco de dados
+├── livraria_HH.db        # Banco SQLite 
+├── templates/            # Páginas HTML (Jinja2)
+│   ├── base.html
+│   ├── home.html
+│   ├── cadastrar.html
+│   ├── editar.html
+│   ├── meus_livros.html
+│   ├── livro_detalhe.html
+│   ├── login.html
+│   └── registrar.html
 └── static/
-└── css/
-└── style.css # Estilos do projeto
+    └── css/
+        └── style.css     # Estilos do projeto
+```
+
 
 Paleta de cores
 Desenvolvida com atenção ao contraste e acessibilidade (verificada no WebAIM Contrast Checker):
