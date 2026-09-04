@@ -1,4 +1,4 @@
-#Livraria do HH
+# Livraria do HH
 
 > *"Aloha! Confira os livros incríveis cadastrados pelos usuários (dahoras) do site de seu professor vietnamita."*  
 > — H. (Love & Peace!) ✌️
@@ -7,7 +7,7 @@ Uma livraria virtual desenvolvida como trabalho da disciplina de **Banco de Dado
 
 ---
 
-##Tecnologias
+## Tecnologias
 
 | Back-end | Front-end | Banco de Dados |
 |----------|-----------|----------------|
@@ -28,7 +28,7 @@ Uma livraria virtual desenvolvida como trabalho da disciplina de **Banco de Dado
 
 ---
 
-## 📂 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```text
 livraria-hh/
