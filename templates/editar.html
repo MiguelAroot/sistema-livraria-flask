@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Editar livro — Livraria do HH{% endblock %}
+{% block content %}
+
+  <h1>Editar livro</h1>
+
+  {% if erro %}
+    <div class="caixa-erro">
+      <span aria-hidden="true">⚠</span>
+      <p>{{ erro }}</p>
+    </div>
+  {% endif %}
+
+  <form method="post" action="{{ url_for('editar_livro', id_livro=livro[0]) }}" class="caixa-formulario">
+
+    <div class="campo">
+      <label for="titulo">Título *</label>
+      <input type="text" id="titulo" name="titulo" value="{{ livro[1] }}" required>
+    </div>
+
+    <div class="campo">
+      <label for="autor">Autor</label>
+      <input type="text" id="autor" name="autor" value="{{ livro[2] if livro[2] else '' }}">
+    </div>
+
+    <div class="campo">
+      <label for="genero">Gênero *</label>
+      <input type="text" id="genero" name="genero" value="{{ livro[3] }}" required>
+    </div>
+
+    <div class="campo">
+      <label for="ano_publicacao">Ano de publicação</label>
+      <input type="text" id="ano_publicacao" name="ano_publicacao" value="{{ livro[4] if livro[4] else '' }}" placeholder="ex: 1997">
+    </div>
+
+    <div class="campo">
+      <label for="preco">Preço (R$) *</label>
+      <input type="number" id="preco" name="preco" step="0.01" min="0" value="{{ livro[5] }}" required>
+    </div>
+
+    <button type="submit" class="botao">Salvar alterações</button>
+
+  </form>
+
+{% endblock %}
