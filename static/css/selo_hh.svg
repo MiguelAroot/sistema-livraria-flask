@@ -1,0 +1,34 @@
+<svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titulo-selo">
+  <title id="titulo-selo">Selo HH de verificação</title>
+  <defs>
+    <linearGradient id="gradMedalha" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7A6FE0"/>
+      <stop offset="100%" stop-color="#453D9A"/>
+    </linearGradient>
+    <linearGradient id="gradFita" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FCA5A5"/>
+      <stop offset="100%" stop-color="#991B1B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- fitas atrás da medalha -->
+  <polygon points="70,120 95,240 115,190" fill="url(#gradFita)"/>
+  <polygon points="130,120 105,240 85,190" fill="url(#gradFita)"/>
+
+  <!-- disco externo -->
+  <circle cx="100" cy="95" r="80" fill="#FFFFFF" stroke="url(#gradMedalha)" stroke-width="10"/>
+
+  <!-- disco interno -->
+  <circle cx="100" cy="95" r="60" fill="url(#gradMedalha)"/>
+
+  <!-- texto HH -->
+  <text x="100" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#FFFFFF">HH</text>
+
+  <!-- check mark -->
+  <path d="M75 108 L92 124 L128 88" fill="none" stroke="#DCFCE7" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- estrelinhas ao redor -->
+  <circle cx="40" cy="55" r="4" fill="#FF9900"/>
+  <circle cx="165" cy="60" r="5" fill="#FF9900"/>
+  <circle cx="150" cy="30" r="3" fill="#FF9900"/>
+</svg>
