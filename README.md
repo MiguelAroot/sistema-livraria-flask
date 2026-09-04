@@ -32,7 +32,7 @@ Sistema web simples para gerenciamento de acervo de livros, desenvolvido como **
 projeto-livraria/
 ├── app.py                # Rotas Flask e lógica da aplicação
 ├── model.py              # Funções de acesso e manipulação do banco de dados
-├── livraria.db           # Banco SQLite (gerado automaticamente)
+├── livraria.db           # Banco SQLite 
 ├── templates/            # Páginas HTML (Jinja2)
 │   ├── base.html
 │   ├── home.html
