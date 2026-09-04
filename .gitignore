@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Banco de dados 
+livraria_HH.db
+*.db
+
+# Ambiente virtual
+venv/
+env/
+ENV/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Variáveis de ambiente
+.env
