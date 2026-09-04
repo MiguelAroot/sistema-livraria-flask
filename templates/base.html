@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livraria do HH</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <a href="#conteudo" class="pular-link">Pular para o conteúdo</a>
+
+  <header class="cabecalho">
+    <a href="{{ url_for('home') }}" class="logo">Livraria do HH</a>
+
+    <nav aria-label="Menu principal">
+      <ul class="menu">
+        <li><a href="{{ url_for('home') }}">Início</a></li>
+
+        {% if session.id_usuario %}
+          <li><a href="{{ url_for('cadastro_livro') }}">Cadastrar livro</a></li>
+          <li><a href="{{ url_for('meus_livros') }}">Meus livros</a></li>
+          <li>
+            Olá, {{ session.nome }}
+            {% if session.selo_aprovado %}
+              <span class="selo">Selo HH</span>
+            {% endif %}
+          </li>
+          <li><a href="{{ url_for('logout') }}">Sair</a></li>
+        {% else %}
+          <li><a href="{{ url_for('fazer_login') }}">Entrar</a></li>
+          <li><a href="{{ url_for('registrar_usuario') }}">Criar conta</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="rodape">
+    <p>Livraria do HH — Greetings folks!</p>
+  </footer>
+
+</body>
+</html>
