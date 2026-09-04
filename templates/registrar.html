@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Criar conta — Livraria do HH{% endblock %}
+{% block content %}
+
+  <h1>Criar conta</h1>
+
+  {% if erro %}
+    <div class="caixa-erro">
+      <span aria-hidden="true">⚠</span>
+      <p>{{ erro }}</p>
+    </div>
+  {% endif %}
+
+  <form method="post" action="{{ url_for('registrar_usuario') }}" class="caixa-formulario">
+
+    <div class="campo">
+      <label for="nome">Nome de usuário *</label>
+      <input type="text" id="nome" name="nome" required minlength="3">
+    </div>
+
+    <div class="campo">
+      <label for="senha">Senha *</label>
+      <input type="password" id="senha" name="senha" required minlength="4">
+    </div>
+
+    <button type="submit" class="botao">Criar conta</button>
+
+  </form>
+
+  <p>Já tem conta? <a href="{{ url_for('fazer_login') }}">Entrar</a></p>
+
+{% endblock %}
