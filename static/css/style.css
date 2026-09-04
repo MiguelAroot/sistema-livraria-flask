@@ -1,0 +1,528 @@
+:root {
+  --bg-body: #F5F5F7;
+  --bg-white: #FFFFFF;
+
+  --text-dark: #1D1D1F;
+  --text-muted: #595959;
+  --border: #D0D0D5;
+
+  --primary: #534AB7;
+  --primary-hover: #453D9A;
+
+  --danger-bg: #FEE2E2;
+  --danger-border: #FCA5A5;
+  --danger-text: #991B1B;
+
+  --success-bg: #DCFCE7;
+  --success-border: #86EFAC;
+  --success-text: #14532D;
+
+  --focus-color: #FF9900;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg-body);
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+/* foco visível ao navegar com Tab */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+/* link para pular direto pro conteúdo (só aparece com Tab) */
+.pular-link {
+  position: absolute;
+  left: -999px;
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 16px;
+  font-weight: 600;
+}
+
+.pular-link:focus {
+  left: 0;
+  top: 0;
+}
+
+/* cabeçalho e menu */
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 8px;
+}
+
+.menu a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.selo {
+  background: var(--success-bg);
+  border: 1px solid var(--success-border);
+  color: var(--success-text);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+/* conteúdo principal */
+main#conteudo {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+/* formulários */
+.caixa-formulario {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 1rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 1.2rem;
+}
+
+.campo label {
+  font-weight: 600;
+}
+
+.campo input {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  min-height: 44px;
+}
+
+/* botões */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 10px 20px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.botao:hover {
+  background: var(--primary-hover);
+}
+
+.botao-excluir {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 8px 16px;
+  background: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+  color: var(--danger-text);
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botao-excluir:hover {
+  background: var(--danger-border);
+}
+
+/* caixa de erro — sempre com texto, não só cor */
+.caixa-erro {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+  color: var(--danger-text);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+
+/* rodapé */
+.rodape {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+}
+
+/* busca */
+.busca {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+}
+
+.busca label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.busca input {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  min-height: 44px;
+  min-width: 200px;
+}
+
+/* lista de livros — cards */
+.lista-livros {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.cartao-livro {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.2rem;
+}
+
+.avatar {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--border);
+  overflow: hidden;
+  margin-bottom: 6px;
+  object-fit: cover; /* garante que a foto preencha o círculo sem distorcer */
+}
+
+.status-aprovado {
+  color: var(--success-text);
+  font-weight: 600;
+}
+
+.status-pendente {
+  color: var(--danger-text);
+  font-weight: 600;
+}
+
+.vazio {
+  margin-top: 2rem;
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  background: var(--bg-white);
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+}
+
+/* tabela — Meus livros */
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tabela caption {
+  text-align: left;
+  padding: 12px 16px;
+  font-weight: 700;
+  background: var(--bg-body);
+}
+
+.tabela th,
+.tabela td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tabela th {
+  background: var(--bg-body);
+  font-weight: 700;
+}
+
+/* responsividade — telas pequenas */
+@media (max-width: 480px) {
+  .cabecalho {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  main#conteudo {
+    padding: 0 1rem;
+  }
+
+  .caixa-formulario {
+    padding: 1.2rem;
+  }
+
+  .tabela {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+} 
+
+/* bloco "hondinha falando": imagem e texto juntos, como um balão de fala */
+.selo-apresentacao {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  margin: 1.5rem 0;
+}
+
+.imagem-hondinha {
+  display: block;
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.balao-fala {
+  position: relative;
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.2rem 1.5rem;
+  flex: 1;
+}
+
+.balao-fala p {
+  margin: 0;
+}
+
+/* "bico" do balão apontando pra hondinha (desenhado com duas bordas triangulares) */
+.balao-fala::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 28px;
+  width: 0;
+  height: 0;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  border-right: 12px solid var(--border);
+}
+
+.balao-fala::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 28px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 11px solid var(--bg-white);
+}
+
+/* perguntas do teste */
+fieldset.pergunta {
+  border: none;
+  padding: 0;
+  margin: 0 0 1.8rem 0;
+}
+
+fieldset.pergunta legend {
+  font-weight: 700;
+  padding: 0;
+  margin-bottom: 0.8rem;
+}
+
+/* cada alternativa numa linha própria, empilhadas uma embaixo da outra */
+.alternativa {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background: var(--bg-white);
+}
+
+.alternativa:last-child {
+  margin-bottom: 0;
+}
+
+.alternativa:hover {
+  border-color: var(--primary);
+  background: var(--bg-body);
+}
+
+.alternativa input[type="radio"] {
+  flex-shrink: 0;
+  margin-top: 3px;
+  min-width: 18px;
+  min-height: 18px;
+}
+
+.selo-sucesso {
+  text-align: center;
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+}
+
+.imagem-selo {
+  display: block;
+  max-width: 160px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 1.2rem;
+}
+
+/* telas pequenas: balão fica embaixo da imagem, sem o "bico" lateral */
+@media (max-width: 480px) {
+  .selo-apresentacao {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .balao-fala::before,
+  .balao-fala::after {
+    display: none;
+  }
+}
+
+/* Página de detalhe do livro / comentários  */
+
+.detalhe-livro p {
+  margin: 0.4rem 0;
+}
+
+.aviso-compra {
+  margin-top: 1rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.aviso-selo {
+  background: var(--success-bg);
+  border: 1px solid var(--success-border);
+  color: var(--success-text);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 1rem 0;
+}
+
+.campo textarea {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font: inherit;
+  resize: vertical;
+  min-height: 44px;
+}
+
+.lista-comentarios {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.comentario {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+}
+
+.comentario-autor {
+  margin: 0 0 4px;
+  font-weight: 700;
+}
+
+.comentario-texto {
+  margin: 0 0 8px;
+}
