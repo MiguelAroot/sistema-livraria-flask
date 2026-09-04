@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}{{ livro[1] }} — Livraria do HH{% endblock %}
+{% block content %}
+
+  <p><a href="{{ url_for('home') }}">&larr; Voltar para a listagem</a></p>
+
+  <h1>{{ livro[1] }}</h1>
+
+  <div class="caixa-formulario detalhe-livro">
+    <p><strong>Autor:</strong> {{ livro[2] if livro[2] else "Autor não informado" }}</p>
+    <p><strong>Gênero:</strong> {{ livro[3] }}</p>
+    <p><strong>Ano:</strong> {{ livro[4] if livro[4] else "—" }}</p>
+    <p><strong>Preço:</strong> R$ {{ "%.2f"|format(livro[5]) }}</p>
+    <p>
+      <strong>Anunciado por:</strong> {{ livro[7] }}
+      {% if livro[8] %}<span class="selo">Selo HH</span>{% endif %}
+    </p>
+    <p class="aviso-compra">
+      E aí, navegante? achou top? A compra deverá ser combinada diretamente com quem realizou o anúncio. A Livraria do HH é apenas a vitrine do acervo.
+      O Honda infelizmente ainda não possui uma máquina de cartão.
+
+    </p>
+  </div>
+
+  <h2>Comentários</h2>
+
+  {% if session.id_usuario %}
+    <form method="post" action="{{ url_for('ver_livro', id_livro=livro[0]) }}" class="caixa-formulario">
+      <div class="campo">
+        <label for="texto">Deixe um comentário sobre esse livro</label>
+        <textarea id="texto" name="texto" rows="3" required></textarea>
+      </div>
+      <button type="submit" class="botao">Comentar</button>
+    </form>
+    {% if not session.selo_aprovado %}
+      <p class="aviso-selo">
+        Curtiu a Livraria do HH? Enquanto você não tem o
+        <a href="{{ url_for('verificar_selo') }}">Selo HH</a>, dá pra ler e comentar
+        os livros do acervo — depois de conquistar o selo, você também pode anunciar
+        os seus.
+      </p>
+    {% endif %}
+  {% else %}
+    <p class="vazio">
+      <a href="{{ url_for('fazer_login') }}">Entre</a> ou
+      <a href="{{ url_for('registrar_usuario') }}">crie uma conta</a>
+      para comentar neste livro.
+    </p>
+  {% endif %}
+
+  {% if comentarios %}
+    <ul class="lista-comentarios">
+      {% for comentario in comentarios %}
+        <li class="comentario">
+          <p class="comentario-autor">
+            {{ comentario[4] }}
+            {% if comentario[5] %}<span class="selo">Selo HH</span>{% endif %}
+          </p>
+          <p class="comentario-texto">{{ comentario[1] }}</p>
+          {% if session.id_usuario == comentario[3] %}
+            <form method="post"
+                  action="{{ url_for('excluir_comentario', id_livro=livro[0], id_comentario=comentario[0]) }}"
+                  onsubmit="return confirm('Excluir este comentário?');">
+              <button type="submit" class="botao-excluir">Excluir comentário</button>
+            </form>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="vazio">Nenhum comentário ainda. Seja o primeiro a comentar!</p>
+  {% endif %}
+
+{% endblock %}
