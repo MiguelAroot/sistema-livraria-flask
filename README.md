@@ -1,13 +1,10 @@
-# Livraria do HH
+# Sistema de Livraria (CRUD)
 
-> *"Aloha! Confira os livros incríveis cadastrados pelos usuários (dahoras) do site de seu professor vietnamita."*  
-> — H. (Love & Peace!) ✌️
-
-Uma livraria virtual desenvolvida como trabalho da disciplina de **Banco de Dados**, com sistema de CRUD completo, autenticação de usuários e um quiz divertido para liberar o famoso **Selo HH**.
+Sistema web simples para gerenciamento de acervo de livros, desenvolvido como **Trabalho 2** da disciplina de **Banco de Dados**. O projeto aplica conceitos de modelagem relacional e desenvolvimento web, oferecendo um CRUD completo com foco em usabilidade e acessibilidade.
 
 ---
 
-## Tecnologias
+## Tecnologias Utilizadas
 
 | Back-end | Front-end | Banco de Dados |
 |----------|-----------|----------------|
@@ -17,24 +14,25 @@ Uma livraria virtual desenvolvida como trabalho da disciplina de **Banco de Dado
 
 ---
 
-## Funcionalidades
+## Funcionalidades (CRUD)
 
-- 🔐 **Autenticação de usuários** (cadastro, login e logout)
-- 📖 **CRUD completo de livros** (cadastrar, listar, editar e excluir)
-- 💬 **Sistema de comentários** nos livros
-- 🔍 **Busca** por título, autor ou gênero
-- 🏅 **Selo HH** — um quiz de perguntas sobre ESD/OCS que o usuário precisa acertar para poder cadastrar livros
-- ♿ **Acessibilidade** seguindo as diretrizes WCAG (contraste, navegação por teclado, labels, etc.)
+- 🔐 **Autenticação de usuários** (cadastro e login).
+- 📖 **Criar (Create):** Formulário para cadastro de novos livros.
+- 🔍 **Ler (Read):** Listagem de livros com campo de busca por título, autor ou gênero.
+- ✏️ **Atualizar (Update):** Edição de dados de livros já cadastrados.
+- 🗑️ **Excluir (Delete):** Remoção de registros com validação de propriedade.
+- 💬 **Comentários:** Sistema de interação nos detalhes de cada livro.
+- ♿ **Acessibilidade:** Projeto desenvolvido seguindo diretrizes WCAG (contraste de cores, navegação por teclado, labels em formulários e HTML semântico).
 
 ---
 
 ## Estrutura do Projeto
 
 ```text
-livraria-hh/
+projeto-livraria/
 ├── app.py                # Rotas Flask e lógica da aplicação
-├── model.py              # Funções de acesso ao banco de dados
-├── livraria_HH.db        # Banco SQLite 
+├── model.py              # Funções de acesso e manipulação do banco de dados
+├── livraria.db           # Banco SQLite (gerado automaticamente)
 ├── templates/            # Páginas HTML (Jinja2)
 │   ├── base.html
 │   ├── home.html
@@ -46,10 +44,8 @@ livraria-hh/
 │   └── registrar.html
 └── static/
     └── css/
-        └── style.css     # Estilos do projeto
+        └── style.css     # Estilos globais do projeto
 ```
-
-
 Paleta de cores
 Desenvolvida com atenção ao contraste e acessibilidade (verificada no WebAIM Contrast Checker):
 🟣 Primária: #534AB7
